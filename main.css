@@ -2,48 +2,53 @@
     box-sizing: border-box;
 }
 :root {
-    --small: 1.4rem;
-    --medium: 1.8rem;
-    --large: 2.4rem;
     --gray1: #BDBDBD;
     --gray2: #4F4F4F;
     --gray3: #333333;
 }
-body {
+body { /* BODY */
     font-family: 'Space Mono', sans-serif;
     margin: 0;
     padding: 0;
     width: 100%;
+    height: 100vh;
     display: grid;
     grid-template-rows: auto;
     min-width: 320px;
-    font-size: 62.5%;
-    row-gap: 50px;
 }
-.header-container {
+.header-container { /* HEADER */
     width: 90%;
     height: 100px;
     margin: 0 auto;
 }
 .header-container-p p {
-    font-size: var(--medium);
+    font-size: 24px;
     font-weight: bold;
     color: var(--gray3);
 }
-.main-container {
+.main-container { /* MAIN */
     width: 90%;
     margin: 0 auto;
     display: grid;
-    row-gap: 60px;
+    row-gap: 80px;
+}
+.main-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
 }
 .main-hero-title h1 {
-    font-size: 4.8rem;
+    font-size: 48px;
     color: var(--gray3);
-    line-height: 80px;
+    margin: 0;
+    line-height: 71px;
 }
 .main-hero-p p {
-    font-size: var(--medium);
+    font-size: 18px;
     color: var(--gray2);
+    margin: 0;
+    line-height: 27px;
 }
 .main-img {
     width: 100%;
@@ -65,14 +70,20 @@ body {
     font-family: 'Space Mono', sans-serif;
     font-weight: bold;
 }
-.footer-container {
-    width: 90%;
-    margin: 0 auto;
+.footer-container { /* FOOTER */
+    margin: 150px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 15px;
+}
+.footer-container-p {
     text-align: center;
 }
 .footer-container-p p {
     color: var(--gray1);
-    font-size: var(--small);
+    font-size: 14px;
+    margin: 0;
 }
 .footer-container-p p .footer-myself-link {
     font-weight: bold;
@@ -81,6 +92,49 @@ body {
 .footer-container-p p .footer-dev-link {
     text-decoration: none;
     color: var(--gray1);
+}
+
+/* --- Transitions and animations --- */
+
+.main-button button:hover {
+    transform: scale(1.1);
+    transition-duration: 0.5s;
+}
+
+/* --- Responsive design - desktop --- */
+
+@media (min-width: 1100px) {
+    .main-container {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: 
+            'img hero'
+            'img button'
+        ;
+        column-gap: 50px;
+    }
+    .main-img {
+        grid-area: img;
+    }
+    .main-hero {
+        grid-area: hero;
+        gap: 0;
+        justify-content: space-between;
+    }
+    .main-button {
+        grid-area: button;
+    }
+    .main-hero-title h1 {
+        font-size: 68px;
+        line-height: 95px;
+    }
+    .main-hero-p {
+        width: 70%;
+    }
+    .main-hero-p p {
+        font-size: 24px;
+        line-height: 36px;
+    }
 }
 
 
