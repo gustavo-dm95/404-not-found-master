@@ -63,6 +63,8 @@ body { /* BODY */
     background-color: var(--gray3);
     width: 216px;
     height: 68px;
+    transform: scale(1);
+    transition: transform 500ms;
 }
 .main-button button a {
     text-decoration: none;
@@ -98,7 +100,15 @@ body { /* BODY */
 
 .main-button button:hover {
     transform: scale(1.1);
-    transition-duration: 0.5s;
+    transition: transform 500ms;
+}
+.footer-container-p p .footer-myself-link:hover {
+    font-weight: bold;
+    color: var(--gray2);
+}
+.footer-container-p p .footer-dev-link:hover {
+    text-decoration: none;
+    color: var(--gray2);
 }
 
 /* --- Responsive design - desktop --- */
